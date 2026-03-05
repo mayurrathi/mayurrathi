@@ -237,8 +237,15 @@
   // Smooth scroll for nav links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      // If the link does not start with '#', let the browser handle it normally (e.g. 'blog/')
+      if (!href || !href.startsWith('#')) {
+        return;
+      }
+
       e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
+      const targetId = href.substring(1);
       const target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });

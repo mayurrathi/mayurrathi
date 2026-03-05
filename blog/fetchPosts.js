@@ -11,22 +11,35 @@ async function fetchAllBlogPosts(basePath = '') {
 
     // 1. Fetch Medium
     try {
-        const mediumRes = await fetch(mediumUrl);
+        // Using an alternative RSS to JSON API endpoint due to 500 errors on the previous one.
+        const mediumUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mayurrathi';
+        const fallbackUrl = 'https://rss-to-json-serverless-api.vercel.app/api?feedURL=https://medium.com/feed/@mayurrathi';
+
+        let mediumRes = await fetch(mediumUrl);
+        if (!mediumRes.ok) {
+            console.warn("Primary RSS API failed, trying fallback...");
+            mediumRes = await fetch(fallbackUrl);
+        }
+
         const mediumData = await mediumRes.json();
-        if (mediumData.status === 'ok' && mediumData.items) {
-            const mediumPosts = mediumData.items.map(item => {
+
+        // Handle both API response formats
+        const items = mediumData.items || mediumData.entries || [];
+
+        if (items && items.length > 0) {
+            const mediumPosts = items.map(item => {
                 // Approximate read time based on content length
-                const contentText = item.content.replace(/<[^>]+>/g, '');
+                const contentText = (item.content || item.description || '').replace(/<[^>]+>/g, '');
                 const wordCount = contentText.split(/\s+/).length;
                 const readTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
 
                 // Extract first image if exists, else generic cover
                 let cover = '';
-                const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+                const imgMatch = (item.content || '').match(/<img[^>]+src="([^">]+)"/);
                 if (imgMatch) {
                     cover = imgMatch[1];
                 } else {
-                    cover = item.thumbnail;
+                    cover = item.thumbnail || '';
                 }
 
                 // Medium sends categories as array, use first or default
@@ -37,8 +50,8 @@ async function fetchAllBlogPosts(basePath = '') {
                 return {
                     title: item.title,
                     slug: item.link,
-                    excerpt: item.description.replace(/<[^>]+>/g, '').substring(0, 150) + '...',
-                    date: item.pubDate,
+                    excerpt: (item.description || item.content || '').replace(/<[^>]+>/g, '').substring(0, 150) + '...',
+                    date: item.pubDate || item.published,
                     category: category,
                     readTime: readTime,
                     tags: item.categories || [],
