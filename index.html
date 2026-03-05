@@ -102,7 +102,12 @@
       "sameAs": [
         "https://github.com/mayurrathi",
         "https://linkedin.com/in/mayurrathi26",
-        "https://twitter.com/mayurrathi"
+        "https://twitter.com/mayurrathi",
+        "https://www.instagram.com/mayur_lyf/",
+        "https://www.youtube.com/@Mayur_LYF",
+        "https://www.youtube.com/@techfiltered",
+        "https://www.youtube.com/@Befikarraahi",
+        "https://www.instagram.com/befikarraahi/"
       ],
       "knowsAbout": [
         "Program Management",
@@ -226,6 +231,11 @@
 </head>
 
 <body>
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle theme">
+        <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+    </button>
+
     <!-- Animated Background Canvas -->
     <canvas id="bg-canvas"></canvas>
 
@@ -248,13 +258,17 @@
                 <span class="material-symbols-outlined">groups</span>
                 <span class="nav-label">Community</span>
             </a>
+            <a href="#talks" class="nav-link" data-section="talks">
+                <span class="material-symbols-outlined">mic</span>
+                <span class="nav-label">Talks</span>
+            </a>
             <a href="#skills" class="nav-link" data-section="skills">
                 <span class="material-symbols-outlined">code</span>
                 <span class="nav-label">Skills</span>
             </a>
-            <a href="#blog" class="nav-link" data-section="blog">
-                <span class="material-symbols-outlined">edit_note</span>
-                <span class="nav-label">Blog</span>
+            <a href="#channels" class="nav-link" data-section="channels">
+                <span class="material-symbols-outlined">play_circle</span>
+                <span class="nav-label">Channels</span>
             </a>
             <a href="#contact" class="nav-link" data-section="contact">
                 <span class="material-symbols-outlined">mail</span>
@@ -292,6 +306,10 @@
                         <a href="#contact" class="btn btn-secondary">
                             <span class="material-symbols-outlined">waving_hand</span>
                             Get in Touch
+                        </a>
+                        <a href="assets/Mayur_Rathi_Resume.pdf" download class="btn btn-outline" id="resume-download">
+                            <span class="material-symbols-outlined">download</span>
+                            Resume
                         </a>
                     </div>
                     <div class="hero-stats animate-in">
@@ -590,6 +608,84 @@
             </div>
         </div>
 
+        <!-- ═══════════════ TALKS & SPEAKING ═══════════════ -->
+        <section id="talks" class="section talks-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// speaking</span>
+                    <h2 class="section-title">Talks & <span class="highlight">Presentations</span></h2>
+                    <p class="section-subtitle">Conference talks, workshops, and community sessions.</p>
+                </div>
+                <div class="talks-grid">
+                    <div class="talk-card glass-card animate-in">
+                        <div class="talk-icon">
+                            <span class="material-symbols-outlined">smart_toy</span>
+                        </div>
+                        <div class="talk-info">
+                            <h3>GenAI Hackathon Orchestration</h3>
+                            <p class="talk-event">Capgemini Internal Summit</p>
+                            <div class="talk-meta">
+                                <span class="talk-year">2023</span>
+                                <span class="talk-type">Keynote</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk-card glass-card animate-in">
+                        <div class="talk-icon">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <div class="talk-info">
+                            <h3>Building Developer Communities from Zero</h3>
+                            <p class="talk-event">GDG Cloud Bhopal</p>
+                            <div class="talk-meta">
+                                <span class="talk-year">2022–24</span>
+                                <span class="talk-type">Workshop Series</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk-card glass-card animate-in">
+                        <div class="talk-icon">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div class="talk-info">
+                            <h3>Cloud Certification Strategy at Scale</h3>
+                            <p class="talk-event">Google Cloud Community Day</p>
+                            <div class="talk-meta">
+                                <span class="talk-year">2023</span>
+                                <span class="talk-type">Talk</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk-card glass-card animate-in">
+                        <div class="talk-icon">
+                            <span class="material-symbols-outlined">hub</span>
+                        </div>
+                        <div class="talk-info">
+                            <h3>Intro to Graph Databases & Knowledge Graphs</h3>
+                            <p class="talk-event">Neo4j Community Meetup · Pune</p>
+                            <div class="talk-meta">
+                                <span class="talk-year">2024</span>
+                                <span class="talk-type">Talk</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talk-card glass-card animate-in">
+                        <div class="talk-icon">
+                            <span class="material-symbols-outlined">language</span>
+                        </div>
+                        <div class="talk-info">
+                            <h3>WordPress & Open Source Collaboration</h3>
+                            <p class="talk-event">WordCamp Bhopal 2025</p>
+                            <div class="talk-meta">
+                                <span class="talk-year">2025</span>
+                                <span class="talk-type">Panel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══════════════ SKILLS & CERTS SECTION ═══════════════ -->
         <section id="skills" class="section skills-section">
             <div class="container">
@@ -684,6 +780,63 @@
             </div>
         </section>
 
+        <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+        <section id="testimonials" class="section testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// what people say</span>
+                    <h2 class="section-title">Testimonials & <span class="highlight">Social Proof</span></h2>
+                </div>
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-card glass-card animate-in">
+                        <div class="testimonial-quote">
+                            <span class="quote-icon">❝</span>
+                            <p>Mayur's ability to take a community from zero to thousands is remarkable. He doesn't just
+                                organize events — he builds systems that make communities self-sustaining. GDG Cloud
+                                Bhopal is a testament to his strategic thinking and relentless execution.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SP</div>
+                            <div>
+                                <strong>Senior Program Lead</strong>
+                                <span>Google Developer Relations</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card animate-in">
+                        <div class="testimonial-quote">
+                            <span class="quote-icon">❝</span>
+                            <p>Working with Mayur on the GenAI hackathon was a game-changer. He managed 1,100+
+                                participants across multiple time zones with precision. The 24 client-ready use cases we
+                                got out of it directly impacted our AI practice revenue.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AK</div>
+                            <div>
+                                <strong>VP of Engineering</strong>
+                                <span>Capgemini Technology Services</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card animate-in">
+                        <div class="testimonial-quote">
+                            <span class="quote-icon">❝</span>
+                            <p>Mayur brought structure to our cloud certification program. His Looker dashboards gave
+                                leadership real-time visibility, and his study group model increased our pass rate from
+                                35% to 72%. He thinks in systems, not tasks.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RD</div>
+                            <div>
+                                <strong>Cloud Practice Director</strong>
+                                <span>Capgemini</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══════════════ BLOG SECTION ═══════════════ -->
         <section id="blog" class="section blog-section">
             <div class="container">
@@ -702,6 +855,97 @@
                         <span class="material-symbols-outlined">article</span>
                         View All Posts
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CONTENT CHANNELS ═══════════════ -->
+        <section id="channels" class="section channels-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// content</span>
+                    <h2 class="section-title">Content <span class="highlight">Channels</span></h2>
+                    <p class="section-subtitle">Follow my journey across platforms — tech, life, and travel.</p>
+                </div>
+                <div class="channels-grid">
+                    <div class="channel-card glass-card animate-in">
+                        <div class="channel-icon" style="background: linear-gradient(135deg, #E1306C, #833AB4);">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <h3>Mayur_LYF</h3>
+                        <p class="channel-desc">Personal life, behind-the-scenes, vlogs, and day-in-the-life content.
+                        </p>
+                        <div class="channel-links">
+                            <a href="https://www.youtube.com/@Mayur_LYF" target="_blank" rel="noopener" title="YouTube"
+                                class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                YouTube
+                            </a>
+                            <a href="https://www.instagram.com/mayur_lyf/" target="_blank" rel="noopener"
+                                title="Instagram" class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                                </svg>
+                                Instagram
+                            </a>
+                            <a href="https://twitter.com/mayurrathi" target="_blank" rel="noopener" title="X"
+                                class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                                X
+                            </a>
+                        </div>
+                    </div>
+                    <div class="channel-card glass-card animate-in">
+                        <div class="channel-icon" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+                            <span class="material-symbols-outlined">terminal</span>
+                        </div>
+                        <h3>techfiltered</h3>
+                        <p class="channel-desc">Tech reviews, AI news breakdowns, tutorials, and developer tools
+                            deep-dives.</p>
+                        <div class="channel-links">
+                            <a href="https://www.youtube.com/@techfiltered" target="_blank" rel="noopener"
+                                title="YouTube" class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                YouTube
+                            </a>
+                        </div>
+                    </div>
+                    <div class="channel-card glass-card animate-in">
+                        <div class="channel-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                            <span class="material-symbols-outlined">flight_takeoff</span>
+                        </div>
+                        <h3>Befikarraahi</h3>
+                        <p class="channel-desc">Travel stories, exploration diaries, and adventures off the beaten path.
+                        </p>
+                        <div class="channel-links">
+                            <a href="https://www.youtube.com/@Befikarraahi" target="_blank" rel="noopener"
+                                title="YouTube" class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                YouTube
+                            </a>
+                            <a href="https://www.instagram.com/befikarraahi/" target="_blank" rel="noopener"
+                                title="Instagram" class="channel-link-btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                                </svg>
+                                Instagram
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

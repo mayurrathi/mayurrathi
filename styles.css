@@ -1431,3 +1431,395 @@ strong {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
 }
+
+/* ════════════════════════════════════════════
+   V3 — Dark / Light Mode Toggle
+   ════════════════════════════════════════════ */
+
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.theme-toggle .material-symbols-outlined {
+  font-size: 22px;
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle:hover .material-symbols-outlined {
+  transform: rotate(30deg);
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  --color-bg-primary: #f8fafc;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f1f5f9;
+  --color-surface: rgba(0, 0, 0, 0.03);
+  --color-surface-hover: rgba(0, 0, 0, 0.06);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(0, 0, 0, 0.18);
+
+  --color-accent: #0d9488;
+  --color-accent-light: #0f766e;
+  --color-accent-glow: rgba(13, 148, 136, 0.2);
+  --color-accent-subtle: rgba(13, 148, 136, 0.08);
+
+  --color-secondary: #d97706;
+  --color-secondary-light: #b45309;
+  --color-secondary-subtle: rgba(217, 119, 6, 0.08);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --text-accent: #0d9488;
+  --text-secondary-accent: #b45309;
+
+  --gradient-primary: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%);
+  --gradient-warm: linear-gradient(135deg, #0d9488 0%, #d97706 100%);
+  --gradient-card: linear-gradient(135deg, rgba(13, 148, 136, 0.06), rgba(217, 119, 6, 0.03));
+  --gradient-glow: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.08) 0%, transparent 70%);
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .glass-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .floating-nav {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-toggle {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] #bg-canvas {
+  opacity: 0.3;
+}
+
+[data-theme="light"] .hero-section::before {
+  opacity: 0.05;
+}
+
+[data-theme="light"] .footer {
+  background: var(--color-bg-tertiary);
+}
+
+/* ════════════════════════════════════════════
+   V3 — Resume Outline Button
+   ════════════════════════════════════════════ */
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent-light);
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--color-accent-glow);
+}
+
+.btn-outline .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ════════════════════════════════════════════
+   V3 — Talks & Speaking Section
+   ════════════════════════════════════════════ */
+
+.talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.talk-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.talk-card:hover {
+  transform: translateY(-3px);
+}
+
+.talk-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.talk-icon .material-symbols-outlined {
+  color: var(--color-accent-light);
+  font-size: 24px;
+}
+
+.talk-info h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.talk-event {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.talk-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.talk-year {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-accent);
+  background: var(--color-accent-subtle);
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+}
+
+.talk-type {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary-accent);
+  background: var(--color-secondary-subtle);
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* ════════════════════════════════════════════
+   V3 — Testimonials Section
+   ════════════════════════════════════════════ */
+
+.testimonials-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
+
+.testimonial-card {
+  flex: 0 0 clamp(300px, 38vw, 420px);
+  scroll-snap-align: start;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.6;
+  font-family: Georgia, serif;
+}
+
+.testimonial-quote p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  color: #0d1117;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.testimonial-author span {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+/* ════════════════════════════════════════════
+   V3 — Content Channels Section
+   ════════════════════════════════════════════ */
+
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.channel-card {
+  padding: 1.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.channel-card:hover {
+  transform: translateY(-5px);
+}
+
+.channel-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.channel-icon .material-symbols-outlined {
+  font-size: 32px;
+  color: white;
+}
+
+.channel-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.channel-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.channel-links {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.channel-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-accent);
+  background: var(--color-accent-subtle);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.channel-link-btn:hover {
+  background: var(--color-accent-glow);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.channel-link-btn svg {
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════
+   V3 — Responsive Tweaks for New Sections
+   ════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .talks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    flex: 0 0 85vw;
+  }
+
+  .channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-toggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero-cta {
+    flex-wrap: wrap;
+  }
+}
