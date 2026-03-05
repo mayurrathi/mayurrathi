@@ -252,9 +252,7 @@
             <a href="#about" class="overlay-link">About</a>
             <a href="#experience" class="overlay-link">Experience</a>
             <a href="#community" class="overlay-link">Community</a>
-            <a href="#talks" class="overlay-link">Talks</a>
             <a href="#skills" class="overlay-link">Skills</a>
-            <a href="#channels" class="overlay-link">Channels</a>
             <a href="blog/" class="overlay-link">Blog</a>
             <a href="#contact" class="overlay-link overlay-cta">Contact</a>
         </div>
@@ -286,10 +284,6 @@
             <a href="#skills" class="nav-link" data-section="skills">
                 <span class="material-symbols-outlined">code</span>
                 <span class="nav-label">Skills</span>
-            </a>
-            <a href="#channels" class="nav-link" data-section="channels">
-                <span class="material-symbols-outlined">play_circle</span>
-                <span class="nav-label">Channels</span>
             </a>
             <a href="#contact" class="nav-link" data-section="contact">
                 <span class="material-symbols-outlined">mail</span>
@@ -909,18 +903,21 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="blog/fetchPosts.js"></script>
     <script>
         // Load blog previews on homepage
         (async function () {
             try {
-                const res = await fetch('blog/posts/posts.json');
-                const posts = await res.json();
+                const posts = await window.fetchAllBlogPosts('blog/');
                 const grid = document.getElementById('blog-preview-grid');
                 if (!grid || !posts.length) return;
 
                 const latest = posts.slice(0, 3);
-                grid.innerHTML = latest.map(post => `
-          <a href="blog/post.html?slug=${post.slug}" class="blog-preview-card glass-card animate-in">
+                grid.innerHTML = latest.map(post => {
+                    const link = post.isExternal ? post.slug : `blog/post.html?slug=${post.slug}`;
+                    const target = post.isExternal ? 'target="_blank" rel="noopener"' : '';
+                    return `
+          <a href="${link}" ${target} class="blog-preview-card glass-card animate-in">
             <span class="blog-category-tag">${post.category}</span>
             <h3>${post.title}</h3>
             <p>${post.excerpt}</p>
@@ -930,7 +927,7 @@
               <span style="margin-left: auto;">${post.readTime}</span>
             </div>
           </a>
-        `).join('');
+        `}).join('');
 
                 // Observe for animations
                 grid.querySelectorAll('.animate-in').forEach(el => {

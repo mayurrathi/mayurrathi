@@ -61,8 +61,7 @@
     // ── Load Posts ──
     async function loadPosts() {
         try {
-            const res = await fetch('posts/posts.json');
-            allPosts = await res.json();
+            allPosts = await window.fetchAllBlogPosts('');
 
             // Initialize Fuse.js search
             fuse = new Fuse(allPosts, {
@@ -132,8 +131,11 @@
                 ? `<img src="${post.cover}" alt="${post.title}" class="blog-card-cover" loading="lazy" />`
                 : '';
 
+            const link = post.isExternal ? post.slug : `post.html?slug=${post.slug}`;
+            const target = post.isExternal ? 'target="_blank" rel="noopener"' : '';
+
             return `
-        <a href="post.html?slug=${post.slug}" class="blog-card">
+        <a href="${link}" ${target} class="blog-card">
           ${coverHtml}
           <span class="blog-card-category">${post.category}</span>
           <h2>${post.title}</h2>
