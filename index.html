@@ -239,7 +239,27 @@
     <!-- Animated Background Canvas -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Floating Navigation -->
+    <!-- Top Navigation (visible on load, hides on scroll) -->
+    <header class="top-nav" id="top-nav">
+        <div class="top-nav-inner">
+            <a href="#hero" class="top-nav-brand">
+                <span class="top-nav-logo">MR</span>
+                <span class="top-nav-name">Mayur Rathi</span>
+            </a>
+            <div class="top-nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#community">Community</a>
+                <a href="#talks">Talks</a>
+                <a href="#skills">Skills</a>
+                <a href="#channels">Channels</a>
+                <a href="blog/">Blog</a>
+                <a href="#contact" class="top-nav-cta">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Navigation (appears on scroll) -->
     <nav class="floating-nav" id="floating-nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-link active" data-section="hero">

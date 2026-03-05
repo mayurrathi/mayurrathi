@@ -156,7 +156,122 @@ strong {
   padding: var(--space-4xl) 0;
 }
 
-/* ── Floating Navigation ── */
+/* ── Top Navigation (visible on load) ── */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--color-border);
+  transition: transform var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.top-nav.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.top-nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: var(--font-size-sm);
+  color: #0d1117;
+  flex-shrink: 0;
+}
+
+.top-nav-name {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.top-nav-links a {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--duration-fast) ease;
+}
+
+.top-nav-links a:hover {
+  color: var(--text-primary);
+  background: var(--color-surface-hover);
+}
+
+.top-nav-cta {
+  background: var(--color-accent) !important;
+  color: #0d1117 !important;
+  padding: var(--space-xs) var(--space-md) !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+}
+
+.top-nav-cta:hover {
+  background: #0d9488 !important;
+  box-shadow: 0 4px 16px var(--color-accent-glow);
+}
+
+[data-theme="light"] .top-nav {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .top-nav-logo {
+  color: #fff;
+}
+
+[data-theme="light"] .top-nav-cta {
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .top-nav-links {
+    display: none;
+  }
+
+  .top-nav-name {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ── Floating Navigation (bottom, appears on scroll) ── */
 .floating-nav {
   position: fixed;
   bottom: var(--space-lg);

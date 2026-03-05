@@ -149,6 +149,7 @@
 
   // ── Floating Navigation ──
   const nav = document.getElementById('floating-nav');
+  const topNav = document.getElementById('top-nav');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
   let lastScrollY = 0;
@@ -156,11 +157,13 @@
   function updateNav() {
     const scrollY = window.scrollY;
 
-    // Show/hide nav
+    // Show/hide nav — top nav hides, floating nav appears
     if (scrollY > 300) {
       nav.classList.add('visible');
+      if (topNav) topNav.classList.add('hidden');
     } else {
       nav.classList.remove('visible');
+      if (topNav) topNav.classList.remove('hidden');
     }
 
     // Active section tracking
