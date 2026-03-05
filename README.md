@@ -41,7 +41,7 @@ Three new sections were added to `index.html` with placeholder text and structur
 - [ ] **In the News Section (`#news`)**: Update media mentions, outlet names, and feature dates.
 
 ### 2. Connect Social Links
-- [ ] Verify that all social row links point to the correct handles (currently pointing to generic or guessed handles like `twitter.com/mayurrathi`). This needs to be checked in 3 places (Hero, Side Panel, Footer).
+- [x] Verified and updated all social row links to point to the correct handles (`mayur_lyf`, `techunfiltered`, `Befikarraahi`).
 
 ### 3. Dynamic External Blog Integration (Medium/LinkedIn)
 - [ ] Currently, the blog system only renders internal Markdown files via `posts.json`. Future enhancements involve implementing a hybrid fetching strategy to pull posts concurrently from a Medium RSS feed and a LinkedIn JSON export into `fetchPosts.js`.
