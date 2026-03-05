@@ -505,7 +505,8 @@ strong {
 
 .stat {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 
 .stat-number {
@@ -513,17 +514,16 @@ strong {
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
-  display: inline;
 }
 
 .stat-suffix {
   font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--color-secondary-light);
-  display: inline;
 }
 
 .stat-label {
+  width: 100%;
   font-size: var(--font-size-xs);
   color: var(--text-tertiary);
   font-weight: 500;
