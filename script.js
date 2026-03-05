@@ -65,7 +65,9 @@
   }
 
   function initParticles() {
-    const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+    const isMobile = window.innerWidth < 768;
+    const maxCount = isMobile ? 25 : 80;
+    const count = Math.min(maxCount, Math.floor((canvas.width * canvas.height) / 15000));
     particles = [];
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
@@ -97,7 +99,10 @@
       p.update();
       p.draw();
     });
-    connectParticles();
+    // Skip connection lines on mobile for performance
+    if (window.innerWidth >= 768) {
+      connectParticles();
+    }
     animationId = requestAnimationFrame(animateBackground);
   }
 
@@ -153,24 +158,47 @@
   const sections = document.querySelectorAll('section[id]');
   let lastScrollY = 0;
 
-  // ── Hamburger Menu ──
+  // ── Hamburger Menu & Side Panel ──
   const hamburger = document.getElementById('hamburger');
-  const overlayMenu = document.getElementById('overlay-menu');
-  const overlayLinks = document.querySelectorAll('.overlay-link');
+  const sidePanel = document.getElementById('side-panel');
+  const sidePanelBackdrop = document.getElementById('side-panel-backdrop');
+  const sidePanelClose = document.getElementById('side-panel-close');
+  const sideLinks = document.querySelectorAll('.side-link');
 
-  if (hamburger && overlayMenu) {
+  function openSidePanel() {
+    hamburger.classList.add('open');
+    sidePanel.classList.add('open');
+    sidePanelBackdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidePanel() {
+    hamburger.classList.remove('open');
+    sidePanel.classList.remove('open');
+    sidePanelBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && sidePanel) {
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      overlayMenu.classList.toggle('open');
-      document.body.style.overflow = overlayMenu.classList.contains('open') ? 'hidden' : '';
+      if (sidePanel.classList.contains('open')) {
+        closeSidePanel();
+      } else {
+        openSidePanel();
+      }
     });
 
-    overlayLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        overlayMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+    sidePanelClose?.addEventListener('click', closeSidePanel);
+    sidePanelBackdrop?.addEventListener('click', closeSidePanel);
+
+    sideLinks.forEach(link => {
+      link.addEventListener('click', closeSidePanel);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidePanel.classList.contains('open')) {
+        closeSidePanel();
+      }
     });
   }
 
@@ -269,26 +297,29 @@
     }
   });
 
-  // ── Interactive Card Tilt Effect ──
-  const cards = document.querySelectorAll('.glass-card');
+  // ── Interactive Card Tilt Effect (desktop only) ──
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (!isTouchDevice) {
+    const cards = document.querySelectorAll('.glass-card');
 
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
     });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-    });
-  });
+  }
 
   // ── Parallax on Hero Image ──
   const heroImage = document.querySelector('.hero-image');
