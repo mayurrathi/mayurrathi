@@ -214,38 +214,92 @@ strong {
   color: var(--text-primary);
 }
 
-.top-nav-links {
+/* Hamburger Icon */
+.hamburger {
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  z-index: 10001;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay Menu */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(13, 17, 23, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
-.top-nav-links a {
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
+.overlay-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-menu-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.overlay-link {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all var(--duration-fast) ease;
+  transition: all 0.25s ease;
+  letter-spacing: -0.01em;
 }
 
-.top-nav-links a:hover {
-  color: var(--text-primary);
-  background: var(--color-surface-hover);
+.overlay-link:hover {
+  color: var(--color-accent-light);
+  transform: scale(1.05);
 }
 
-.top-nav-cta {
-  background: var(--color-accent) !important;
-  color: #0d1117 !important;
-  padding: var(--space-xs) var(--space-md) !important;
-  border-radius: var(--radius-full) !important;
-  font-weight: 600 !important;
+.overlay-cta {
+  color: var(--color-accent) !important;
 }
 
-.top-nav-cta:hover {
-  background: #0d9488 !important;
-  box-shadow: 0 4px 16px var(--color-accent-glow);
+[data-theme="light"] .overlay-menu {
+  background: rgba(248, 250, 252, 0.95);
 }
 
 [data-theme="light"] .top-nav {
@@ -262,10 +316,6 @@ strong {
 }
 
 @media (max-width: 768px) {
-  .top-nav-links {
-    display: none;
-  }
-
   .top-nav-name {
     font-size: var(--font-size-sm);
   }

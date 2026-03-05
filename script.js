@@ -154,6 +154,27 @@
   const sections = document.querySelectorAll('section[id]');
   let lastScrollY = 0;
 
+  // ── Hamburger Menu ──
+  const hamburger = document.getElementById('hamburger');
+  const overlayMenu = document.getElementById('overlay-menu');
+  const overlayLinks = document.querySelectorAll('.overlay-link');
+
+  if (hamburger && overlayMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      overlayMenu.classList.toggle('open');
+      document.body.style.overflow = overlayMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    overlayLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        overlayMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
   function updateNav() {
     const scrollY = window.scrollY;
 
