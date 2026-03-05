@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Mayur Rathi</title>
+    <meta name="description"
+        content="Articles, tutorials, and thoughts on AI, cloud, community building, and tech trends by Mayur Rathi." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog — Mayur Rathi" />
+    <meta property="og:description"
+        content="Articles, tutorials, and thoughts on AI, cloud, community building, and tech trends." />
+    <meta property="og:url" content="https://mayur.bhopal.dev/blog/" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+        rel="stylesheet" />
+
+    <!-- Main site styles + blog styles -->
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="blog.css" />
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Mayur Rathi's Blog" href="feed.xml" />
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <div class="blog-header-inner">
+                <a href="../" class="blog-home-link">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Mayur Rathi</span>
+                </a>
+                <h1 class="blog-title-main">Blog</h1>
+                <a href="feed.xml" class="rss-link" title="RSS Feed">
+                    <span class="material-symbols-outlined">rss_feed</span>
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <span class="material-symbols-outlined search-icon">search</span>
+                <input type="text" id="search-input" placeholder="Search posts..." autocomplete="off" />
+                <kbd class="search-kbd">⌘K</kbd>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filters" id="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="blog-main">
+        <div class="container">
+            <div class="blog-grid" id="blog-grid">
+                <!-- Populated dynamically from posts.json -->
+            </div>
+            <div id="no-results" class="no-results" style="display:none;">
+                <span class="material-symbols-outlined"
+                    style="font-size:48px;color:var(--text-tertiary);">search_off</span>
+                <p>No posts found. Try a different search term.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Crafted with <span class="heart">♥</span> by Mayur Rathi · © 2025</p>
+            <p class="footer-sub">
+                <a href="../" style="color:var(--color-accent-light);">← Back to Portfolio</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Fuse.js for search -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+    <script src="blog.js"></script>
+</body>
+
+</html>

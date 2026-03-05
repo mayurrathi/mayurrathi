@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mayur Rathi's Blog</title>
+    <link>https://mayur.bhopal.dev/blog/</link>
+    <description>Articles, tutorials, and thoughts on AI, cloud, community building, and tech trends.</description>
+    <language>en-us</language>
+    <atom:link href="https://mayur.bhopal.dev/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Building AI Communities from Zero to Thousands</title>
+      <link>https://mayur.bhopal.dev/blog/post.html?slug=building-ai-communities-from-zero</link>
+      <description>How I scaled GDG Cloud Bhopal from 21 to 2,400+ members in under 12 months — the playbook behind grassroots developer community building.</description>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 GMT</pubDate>
+      <guid>https://mayur.bhopal.dev/blog/post.html?slug=building-ai-communities-from-zero</guid>
+      <category>Community</category>
+    </item>
+    <item>
+      <title>The GenAI Hackathon Playbook: Lessons from 1,100+ Participants</title>
+      <link>https://mayur.bhopal.dev/blog/post.html?slug=genai-hackathon-playbook</link>
+      <description>What I learned orchestrating Capgemini's largest GenAI hackathon — from ideation to 24 client-ready use cases.</description>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://mayur.bhopal.dev/blog/post.html?slug=genai-hackathon-playbook</guid>
+      <category>Tutorial</category>
+    </item>
+    <item>
+      <title>Driving 300% Growth in Cloud Certifications — A Program Manager's Approach</title>
+      <link>https://mayur.bhopal.dev/blog/post.html?slug=cloud-certifications-strategy</link>
+      <description>The systems and SOPs behind achieving a 300% YoY increase in technical certifications at scale.</description>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate>
+      <guid>https://mayur.bhopal.dev/blog/post.html?slug=cloud-certifications-strategy</guid>
+      <category>Article</category>
+    </item>
+  </channel>
+</rss>

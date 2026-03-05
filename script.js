@@ -29,7 +29,7 @@
       this.speedX = (Math.random() - 0.5) * 0.3;
       this.speedY = (Math.random() - 0.5) * 0.3;
       this.opacity = Math.random() * 0.3 + 0.1;
-      this.hue = 260 + Math.random() * 40; // Purple range
+      this.hue = 165 + Math.random() * 30; // Teal-emerald range
     }
 
     update() {
@@ -81,7 +81,7 @@
         if (dist < 120) {
           const opacity = (1 - dist / 120) * 0.08;
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(124, 58, 237, ${opacity})`;
+          ctx.strokeStyle = `rgba(20, 184, 166, ${opacity})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);

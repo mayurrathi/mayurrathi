@@ -1,0 +1,47 @@
+[
+    {
+        "slug": "building-ai-communities-from-zero",
+        "title": "Building AI Communities from Zero to Thousands",
+        "excerpt": "How I scaled GDG Cloud Bhopal from 21 to 2,400+ members in under 12 months — the playbook behind grassroots developer community building.",
+        "category": "Community",
+        "tags": [
+            "community",
+            "gdg",
+            "strategy"
+        ],
+        "date": "2025-03-01",
+        "readTime": "8 min read",
+        "author": "Mayur Rathi",
+        "cover": "images/community-building.png"
+    },
+    {
+        "slug": "genai-hackathon-playbook",
+        "title": "The GenAI Hackathon Playbook: Lessons from 1,100+ Participants",
+        "excerpt": "What I learned orchestrating Capgemini's largest GenAI hackathon — from ideation to 24 client-ready use cases.",
+        "category": "Tutorial",
+        "tags": [
+            "genai",
+            "hackathon",
+            "program-management"
+        ],
+        "date": "2025-02-15",
+        "readTime": "6 min read",
+        "author": "Mayur Rathi",
+        "cover": "images/genai-hackathon.png"
+    },
+    {
+        "slug": "cloud-certifications-strategy",
+        "title": "Driving 300% Growth in Cloud Certifications — A Program Manager's Approach",
+        "excerpt": "The systems and SOPs behind achieving a 300% YoY increase in technical certifications at scale.",
+        "category": "Article",
+        "tags": [
+            "certifications",
+            "google-cloud",
+            "program-management"
+        ],
+        "date": "2025-01-20",
+        "readTime": "5 min read",
+        "author": "Mayur Rathi",
+        "cover": "images/certifications.png"
+    }
+]
