@@ -246,7 +246,11 @@
                         }
                     });
 
-                    const html = marked.parse(md);
+                    // Strip YAML frontmatter if it exists
+                    const frontmatterRegex = /^---\\n([\\s\\S]*?)\\n---\\n/;
+                    const mdClean = md.replace(frontmatterRegex, '');
+
+                    const html = marked.parse(mdClean);
 
                     // Remove the first H1 (already shown in the header)
                     const temp = document.createElement('div');

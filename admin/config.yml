@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: mayurrathi/mayurrathi # User's repository
+  branch: main # Branch to update
+
+# Allow local testing without logging into GitHub during development
+local_backend: true
+
+media_folder: "assets/images" # Where files are uploaded
+public_folder: "/assets/images" # Where they are served from relative to the site root
+
+# Settings for the Sveltia CMS UI
+site_url: "https://mayur.bhopal.dev"
+display_url: "https://mayur.bhopal.dev"
+logo_url: "https://mayur.bhopal.dev/assets/favicon.png"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blog/posts"
+    create: true
+    slug: "{{slug}}" # e.g. title-of-post
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Category", name: "category", widget: "string", default: "Article" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "Mayur Rathi" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false, choose_url: false }
+      - { label: "Body", name: "body", widget: "markdown" }

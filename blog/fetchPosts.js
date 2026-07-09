@@ -80,7 +80,23 @@ async function fetchAllBlogPosts(basePath = '') {
         console.error("Failed to fetch LinkedIn posts:", e);
     }
 
-    // 3. Sort descending by date
+    // 3. Fetch Local Posts (from posts.json)
+    try {
+        const localPostsUrl = basePath + 'posts/posts.json';
+        const localRes = await fetch(localPostsUrl);
+        if (localRes.ok) {
+            const localData = await localRes.json();
+            const localPosts = localData.map(item => ({
+                ...item,
+                isExternal: false
+            }));
+            allPosts = allPosts.concat(localPosts);
+        }
+    } catch (e) {
+        console.error("Failed to fetch local posts:", e);
+    }
+
+    // 4. Sort descending by date
     allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return allPosts;

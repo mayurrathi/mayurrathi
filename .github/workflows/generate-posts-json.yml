@@ -1,0 +1,37 @@
+name: Generate posts.json on blog push
+
+on:
+  push:
+    paths:
+      - 'blog/posts/*.md'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-posts-json:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run script
+        run: node scripts/generate-posts.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add blog/posts/posts.json
+          git commit -m "chore: auto-generate posts.json [skip ci]" || echo "No changes to commit"
+          git push
