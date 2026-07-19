@@ -1,5 +1,18 @@
 [
     {
+        "slug": "test",
+        "title": "Test",
+        "excerpt": "",
+        "category": "Article",
+        "tags": [
+            "Test"
+        ],
+        "date": "2026-07-19",
+        "readTime": "5 min read",
+        "author": "Mayur Rathi",
+        "cover": ""
+    },
+    {
         "slug": "building-ai-communities-from-zero",
         "title": "Building AI Communities from Zero to Thousands",
         "excerpt": "How I scaled GDG Cloud Bhopal from 21 to 2,400+ members in under 12 months — the playbook behind grassroots developer community building.",
